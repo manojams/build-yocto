@@ -1,36 +1,35 @@
-name: build
+name: Yocto Build
 
-on: # Controls when the workflow will run
-  push: # Triggers the workflow on push events but only for the develop or main branches
-    branches: [develop, main]
-  pull_request:
-  workflow_dispatch: # Allows you to run this workflow manually from the Actions tab
+on:
+  push:
+    branches:
+      - main
 
-jobs: # A workflow run is made up of one or more jobs that can run sequentially or in parallel
-  build: # This workflow contains a single job called "build"
-    runs-on: [self-hosted, Linux, X64, BuildMachine] # The type of runner that the job will run on
+jobs:
+  build:
+    name: Build Yocto
+    runs-on: ubuntu-latest
     
-    steps: # Steps represent a sequence of tasks that will be executed as part of the job
-      - run: rm -rf var-fslc-yocto # clean
-      
-      - run: |
-          mkdir var-fslc-yocto
-          cd var-fslc-yocto
-          repo init -u https://github.com/varigit/variscite-bsp-platform.git -b 05082844a2bf88295974f89a56daa9389ec5e10a
-          repo sync
-          
-          export EULA=1
-          MACHINE=var-som-mx6 DISTRO=fslc-framebuffer source setup-environment build
-          
-          echo 'INHERIT += "rm_work"'                      >> conf/local.conf
-          echo 'DL_DIR = "/mnt/resource/downloads"'        >> conf/local.conf
-          echo 'SSTATE_DIR = "/mnt/resource/sstate-cache"' >> conf/local.conf
-          
-          bitbake fsl-image-gui
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v2
 
-      - uses: actions/upload-artifact@v2
-        with:
-          name: sdcard
-          path: var-fslc-yocto/build/tmp/deploy/images/var-som-mx6/*.rootfs.wic.gz
+      - name: Install dependencies
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat cpio python python3 python3-pip python3-pexpect xz-utils debianutils iputils-ping libsdl1.2-dev xterm
 
-      - run: rm -rf var-fslc-yocto # clean
+      - name: Clone Yocto Poky repository
+        run: git clone git://git.yoctoproject.org/poky.git
+
+      - name: Clone Raspberry Pi layer
+        run: git clone git://git.yoctoproject.org/meta-raspberrypi.git poky/meta-raspberrypi
+
+      - name: Build Yocto
+        run: |
+          cd poky
+          source oe-init-build-env
+          bitbake core-image-minimal
+
+      # Add additional steps if needed, such as deploying the build artifacts
+
