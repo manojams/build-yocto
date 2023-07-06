@@ -17,6 +17,7 @@ jobs:
       - name: Install dependencies
         run: |
           sudo apt-get update
+                  sudo apt-get install -y gawk wget git-core diffstat unzip texinfo gcc-multilib build-essential chrpath socat cpio  xz-utils debianutils iputils-ping libsdl1.2-dev xterm
 
       - name: Clone Yocto Poky repository
         run: git clone git://git.yoctoproject.org/poky.git
