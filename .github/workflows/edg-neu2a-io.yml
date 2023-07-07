@@ -28,7 +28,7 @@ jobs:
 
       - name: Clone bitbake repository
         run: |
-          git clone git://git.openembedded.org/bitbake -b master  
+          git clone git://git.openembedded.org/bitbake -b master  ./neu2aYctBuild/
 
       - name: Clone openembedded-core repository
         run: |
