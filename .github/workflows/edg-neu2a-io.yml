@@ -42,7 +42,7 @@ jobs:
         run: |
          git clone git://git.openembedded.org/meta-openembedded -b kirkstone  
 
-      - name: Clone meta neu2a layer
+      - name: Clone meta-neu6b repository
         run: git clone https://github.com/edgeble/meta-neu6b.git -b kirkstone 
 
       - name: Build neu2a-io yocto build
