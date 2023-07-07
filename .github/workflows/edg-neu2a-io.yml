@@ -47,7 +47,7 @@ jobs:
 
       - name: Build neu2a-io yocto build
         run: |
-          source openembedded-core/oe-init-build-env
+          source openembedded-core/oe-init-build-env build
           cd build
           echo 'MACHINE = "neu2a-io"' >> conf/local.conf
           echo 'BBLAYERS += "${BSPDIR}/../meta-neu6b"' >> build/conf/bblayers.conf
