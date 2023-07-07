@@ -28,22 +28,22 @@ jobs:
 
       - name: Clone bitbake repository
         run: |
-          git clone git://git.openembedded.org/bitbake -b master  ./neu2aYctBuild/
+          git clone git://git.openembedded.org/bitbake -b master  
 
       - name: Clone openembedded-core repository
         run: |
-          git clone git://git.openembedded.org/openembedded-core -b kirkstone  ./neu2aYctBuild/
+          git clone git://git.openembedded.org/openembedded-core -b kirkstone  
 
       - name: Clone meta-arm repository
         run: |
-         git clone git://git.yoctoproject.org/meta-arm -b kirkstone  ./neu2aYctBuild/
+         git clone git://git.yoctoproject.org/meta-arm -b kirkstone  
 
       - name: Clone meta-openembedded repository
         run: |
-         git clone git://git.openembedded.org/meta-openembedded -b kirkstone  ./neu2aYctBuild/
+         git clone git://git.openembedded.org/meta-openembedded -b kirkstone  
 
       - name: Clone meta neu2a layer
-        run: git clone https://github.com/edgeble/meta-neu6b.git -b kirkstone ./neu2aYctBuild/
+        run: git clone https://github.com/edgeble/meta-neu6b.git -b kirkstone 
 
       - name: Build neu2a-io yocto build
         run: |
