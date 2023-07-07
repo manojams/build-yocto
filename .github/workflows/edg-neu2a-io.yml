@@ -17,6 +17,7 @@ jobs:
 
       - name: Install dependencies
         run: |
+          rm -rf neu2aYctBuild
           mkdir neu2aYctBuild
           cd neu2aYctBuild
           sudo apt-get update
