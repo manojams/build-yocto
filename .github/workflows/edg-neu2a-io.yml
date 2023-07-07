@@ -8,7 +8,7 @@ on:
 
 jobs:
   build:
-    name: Build Yocto
+    name: neu2a yocto Build
     runs-on: ubuntu-latest
 
     steps:
