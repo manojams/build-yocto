@@ -1,4 +1,4 @@
-name: Yocto Build
+name: neu2a yocto Build
 
 on:
   push:
