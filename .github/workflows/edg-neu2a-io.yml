@@ -82,10 +82,10 @@ jobs:
            cd neu2aYctBuild
            ls
           
-      - name: build bitbake core-image
+      - name: setup the local.conf and bblayer.conf
         run: |
           cd neu2aYctBuild
-          cd build
+          source openembedded-core/oe-init-build-env build
           ls
           echo 'MACHINE ??= "neu2a-io"' >> conf/local.conf
           cat conf/local.conf          
