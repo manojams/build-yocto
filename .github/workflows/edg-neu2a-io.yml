@@ -84,6 +84,7 @@ jobs:
           
       - name: build bitbake core-image
         run: |
+          cd neu2aYctBuild
           cd build
           cat conf/local.conf
           cat conf/bblayers.conf
