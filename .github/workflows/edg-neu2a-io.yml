@@ -89,6 +89,7 @@ jobs:
           cat conf/local.conf
           cat conf/bblayers.conf
           echo 'MACHINE = "neu2a-io"' >> conf/local.conf
+          cat conf/local.conf
           echo 'BBLAYERS += "${BSPDIR}/../meta-neu6b"' >> build/conf/bblayers.conf
           echo 'BBLAYERS += "${BSPDIR}/../meta-openembedded/meta-oe"' >> build/conf/bblayers.conf
           echo 'BBLAYERS += "${BSPDIR}/../meta-openembedded/meta-python"' >> build/conf/bblayers.conf
@@ -96,6 +97,7 @@ jobs:
           echo 'BBLAYERS += "${BSPDIR}/../poky/meta"' >> build/conf/bblayers.conf
           echo 'BBLAYERS += "${BSPDIR}/../meta-arm/meta-arm-toolchain"' >> build/conf/bblayers.conf
           echo 'BBLAYERS += "${BSPDIR}/../meta-arm/meta-arm"' >> build/conf/bblayers.conf
+          cat conf/bblayers.conf
           bitbake core-image-minimal
 
       # Add additional steps if needed, such as deploying the build artifacts
