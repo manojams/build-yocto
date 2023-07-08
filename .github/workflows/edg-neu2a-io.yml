@@ -96,6 +96,13 @@ jobs:
           cd neu2aYctBuild
           source openembedded-core/oe-init-build-env build
           cat conf/bblayers.conf
+          bitbake-layers add-layer ../openembedded-core/meta
+          bitbake-layers add-layer ../meta-arm/meta-arm-toolchain
+          bitbake-layers add-layer ../meta-arm/meta-arm
+          bitbake-layers add-layer ../meta-neu6b
+          bitbake-layers add-layer ../meta-openembedded/meta-oe
+          bitbake-layers add-layer ../meta-openembedded/meta-python
+          bitbake-layers add-layer ../meta-openembedded/meta-networking
           bitbake core-image-minimal
           
 
