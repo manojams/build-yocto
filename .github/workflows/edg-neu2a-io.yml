@@ -87,8 +87,12 @@ jobs:
           cd neu2aYctBuild
           ls
           source openembedded-core/oe-init-build-env build
-          echo 'MACHINE ??= "neu2a-io"' >> conf/local.conf
-          sed -i 's#BBLAYERS \?= .*#BBLAYERS += " ${TOPDIR}/../openembedded-core/meta" \n  ${TOPDIR}/../openembedded-core/meta \n ${TOPDIR}/../meta-neu6b \n  ${TOPDIR}/../meta-openembedded/meta-oe \n  ${TOPDIR}/../meta-openembedded/meta-python \n  ${TOPDIR}/../poky/meta \n  ${TOPDIR}/../meta-arm/meta-arm-toolchain \n  ${TOPDIR}/../meta-arm/meta-arm"#' conf/bblayers.conf
+          echo 'BBLAYERS += "${TOPDIR}/../meta-neu6b"' >> conf/bblayers.conf
+          echo 'BBLAYERS += "${TOPDIR}/../meta-openembedded/meta-oe"' >> conf/bblayers.conf
+          echo 'BBLAYERS += "${TOPDIR}/../meta-openembedded/meta-python"' >> conf/bblayers.conf
+          echo 'BBLAYERS += "${TOPDIR}/../poky/meta"' >> conf/bblayers.conf
+          echo 'BBLAYERS += "${TOPDIR}/../meta-arm/meta-arm-toolchain"' >> conf/bblayers.conf
+          echo 'BBLAYERS += "${TOPDIR}/../meta-arm/meta-arm"' >> conf/bblayers.conf
           cat conf/bblayers.conf
           bitbake core-image-minimal
           
