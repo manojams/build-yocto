@@ -90,13 +90,13 @@ jobs:
           cat conf/bblayers.conf
           echo 'MACHINE = "neu2a-io"' >> conf/local.conf
           cat conf/local.conf
-          echo 'BBLAYERS += "${BSPDIR}/../meta-neu6b"' >> build/conf/bblayers.conf
-          echo 'BBLAYERS += "${BSPDIR}/../meta-openembedded/meta-oe"' >> build/conf/bblayers.conf
-          echo 'BBLAYERS += "${BSPDIR}/../meta-openembedded/meta-python"' >> build/conf/bblayers.conf
-          echo 'BBLAYERS += "${BSPDIR}/../meta-arm"' >> build/conf/bblayers.conf
-          echo 'BBLAYERS += "${BSPDIR}/../poky/meta"' >> build/conf/bblayers.conf
-          echo 'BBLAYERS += "${BSPDIR}/../meta-arm/meta-arm-toolchain"' >> build/conf/bblayers.conf
-          echo 'BBLAYERS += "${BSPDIR}/../meta-arm/meta-arm"' >> build/conf/bblayers.conf
+          echo 'BBLAYERS += "${BSPDIR}/../meta-neu6b"' >> conf/bblayers.conf
+          echo 'BBLAYERS += "${BSPDIR}/../meta-openembedded/meta-oe"' >> conf/bblayers.conf
+          echo 'BBLAYERS += "${BSPDIR}/../meta-openembedded/meta-python"' >> conf/bblayers.conf
+          echo 'BBLAYERS += "${BSPDIR}/../meta-arm"' >> conf/bblayers.conf
+          echo 'BBLAYERS += "${BSPDIR}/../poky/meta"' >> conf/bblayers.conf
+          echo 'BBLAYERS += "${BSPDIR}/../meta-arm/meta-arm-toolchain"' >> conf/bblayers.conf
+          echo 'BBLAYERS += "${BSPDIR}/../meta-arm/meta-arm"' >> conf/bblayers.conf
           cat conf/bblayers.conf
           bitbake core-image-minimal
 
