@@ -96,8 +96,6 @@ jobs:
           cd neu2aYctBuild
           source openembedded-core/oe-init-build-env build
           cat conf/bblayers.conf
-          sed -i '/^BBLAYERS ?= .*$/d' conf/bblayers.conf
-          cat conf/bblayers.conf
           bitbake core-image-minimal
           
 
