@@ -74,10 +74,12 @@ jobs:
       - name: Build neu2a-io yocto build
         run: |
           cd neu2aYctBuild
+          ls
           source openembedded-core/oe-init-build-env
           
       - name: Check directory contents
         run: |
+           cd neu2aYctBuild
            ls
           
       - name: build bitbake core-image
