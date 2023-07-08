@@ -25,7 +25,8 @@ jobs:
 
       - name: Clone Yocto Poky repository
         run: |
-          git clone git://git.yoctoproject.org/poky.git  ./neu2aYctBuild/
+          cd neu2aYctBuild
+          git clone git://git.yoctoproject.org/poky.git  
 
       - name: Clone bitbake repository
         run: |
