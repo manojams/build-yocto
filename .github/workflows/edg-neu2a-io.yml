@@ -54,11 +54,20 @@ jobs:
         run: | 
           cd neu2aYctBuild
           git clone https://github.com/manojams/meta-neu6b.git -b kirkstone 
+      
+      - name: Print current directory
+        run: |
+          cd neu2aYctBuild
+          pwd
+
+      - name: Create build directory
+        run: |
+          cd neu2aYctBuild
+          mkdir build
 
       - name: Build neu2a-io yocto build
         run: |
           cd neu2aYctBuild
-          mkdir build
           source openembedded-core/oe-init-build-env build
           cd build
           pwd
