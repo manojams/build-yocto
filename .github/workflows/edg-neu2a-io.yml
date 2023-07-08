@@ -66,11 +66,6 @@ jobs:
           cd neu2aYctBuild
           pwd
 
-      - name: Create build directory
-        run: |
-          cd neu2aYctBuild
-          mkdir build
-      
       - name: Check directory contents
         run: |
           cd neu2aYctBuild
@@ -79,11 +74,13 @@ jobs:
       - name: Build neu2a-io yocto build
         run: |
           cd neu2aYctBuild
-          cd poky
-          source oe-init-build-env ../build
-          cd build
-          pwd
+          source openembedded-core/oe-init-build-env
+          
+      - name: Check directory contents
           ls
+          
+      - name: build bitbake core-image
+          cd build
           cat conf/local.conf
           cat conf/bblayers.conf
           echo 'MACHINE = "neu2a-io"' >> conf/local.conf
