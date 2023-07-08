@@ -86,6 +86,7 @@ jobs:
         run: |
           cd neu2aYctBuild
           source openembedded-core/oe-init-build-env build
+          cd build
           ls
           echo 'MACHINE ??= "neu2a-io"' >> conf/local.conf
           cat conf/local.conf          
