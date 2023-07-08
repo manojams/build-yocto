@@ -27,6 +27,12 @@ jobs:
         run: |
           cd neu2aYctBuild
           git clone git://git.yoctoproject.org/poky.git  
+          
+      - name: Check directory contents
+        run: |
+          cd neu2aYctBuild
+          ls
+      
 
       - name: Clone bitbake repository
         run: |
