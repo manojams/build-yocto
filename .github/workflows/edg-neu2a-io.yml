@@ -88,6 +88,7 @@ jobs:
           ls
           source openembedded-core/oe-init-build-env build
           echo 'MACHINE ??= "neu2a-io"' >> conf/local.conf
+          sed -i '$ a\' conf/bblayers.conf
           echo 'BBLAYERS ?=  "${TOPDIR}/../openembedded-core/meta"' >> conf/bblayers.conf
           echo 'BBLAYERS ?=  "${TOPDIR}/../meta-neu6b"' >> conf/bblayers.conf
           echo 'BBLAYERS +=  "${TOPDIR}/../meta-openembedded/meta-oe"' >> conf/bblayers.conf
