@@ -58,6 +58,7 @@ jobs:
       - name: Build neu2a-io yocto build
         run: |
           cd neu2aYctBuild
+          mkdir build
           source openembedded-core/oe-init-build-env build
           cd build
           pwd
