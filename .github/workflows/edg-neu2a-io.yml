@@ -82,19 +82,29 @@ jobs:
            cd neu2aYctBuild
            ls
           
-      - name: setup the local.conf and bblayer.conf
+      - name: setup the local.conf
         run: |
           cd neu2aYctBuild
           ls
           source openembedded-core/oe-init-build-env build
-          echo 'BBLAYERS:append = "/home/runner/work/build-yocto/build-yocto/neu2aYctBuild/meta-neu6b"' >> conf/bblayers.conf
-          echo 'BBLAYERS:append = "/home/runner/work/build-yocto/build-yocto/neu2aYctBuild/meta-openembedded/meta-oe"' >> conf/bblayers.conf
-          echo 'BBLAYERS:append =  "/home/runner/work/build-yocto/build-yocto/neu2aYctBuild/meta-openembedded/meta-python"' >> conf/bblayers.conf
-          echo 'BBLAYERS:append =  "/home/runner/work/build-yocto/build-yocto/neu2aYctBuild/poky/meta"' >> conf/bblayers.conf
-          echo 'BBLAYERS:append =  "/home/runner/work/build-yocto/build-yocto/neu2aYctBuild/meta-arm/meta-arm-toolchain"' >> conf/bblayers.conf
-          echo 'BBLAYERS:append =  "/home/runner/work/build-yocto/build-yocto/neu2aYctBuild/meta-arm/meta-arm"' >> conf/bblayers.conf
-          cat conf/bblayers.conf
-          bitbake core-image-minimal
+          ls
+          echo 'MACHINE ??= "neu2a-io"' >> conf/local.conf
+          cat conf/local.conf
+          
+      - name: Update bblayers.conf
+        run: |
+           cd neu2aYctBuild
+           source openembedded-core/oe-init-build-env build
+           sed -i '/BBLAYERS \?= .*/a\
+           BBLAYERS += "${TOPDIR}/../meta-neu6b" \\\
+           "${TOPDIR}/../meta-openembedded/meta-oe" \\\
+           "${TOPDIR}/../meta-openembedded/meta-python" \\\
+           "${TOPDIR}/../poky/meta" \\\
+           "${TOPDIR}/../meta-arm/meta-arm-toolchain" \\\
+           "${TOPDIR}/../meta-arm/meta-arm"' conf/bblayers.conf
+            cat conf/bblayers.conf
+            bitbake core-image-minimal
+
           
 
       # Add additional steps if needed, such as deploying the build artifacts
