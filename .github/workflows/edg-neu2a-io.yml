@@ -97,6 +97,7 @@ jobs:
           echo 'BBLAYERS += "${TOPDIR}/../meta-arm/meta-arm"' >> conf/bblayers.conf
           
       - name: build the core-image-minimal
+        run: | 
           cd neu2aYctBuild
           ls
           source openembedded-core/oe-init-build-env build
