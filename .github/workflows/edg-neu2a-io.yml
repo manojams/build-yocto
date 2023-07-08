@@ -33,15 +33,14 @@ jobs:
           cd neu2aYctBuild
           ls
       
-
       - name: Clone bitbake repository
         run: |
           cd neu2aYctBuild  
           pwd
           ls
-          if [ ! -d "bitbake" ]; then
-            git clone git://git.openembedded.org/bitbake -b master .
-          fi
+          git clone git://git.openembedded.org/bitbake -b master 
+          ls
+          
       - name: Clone openembedded-core repository
         run: |
           cd neu2aYctBuild
