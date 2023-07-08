@@ -77,9 +77,11 @@ jobs:
           source openembedded-core/oe-init-build-env
           
       - name: Check directory contents
-          ls
+        run: |
+           ls
           
       - name: build bitbake core-image
+        run: |
           cd build
           cat conf/local.conf
           cat conf/bblayers.conf
