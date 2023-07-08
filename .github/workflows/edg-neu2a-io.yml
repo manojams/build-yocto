@@ -94,6 +94,7 @@ jobs:
       - name: Update bblayers.conf
         run: |
           cd neu2aYctBuild
+          source openembedded-core/oe-init-build-env build
           sed -i '/^BBLAYERS ?= .*$/d' conf/bblayers.conf
           cat conf/bblayers.conf
           echo 'BBLAYERS += "${TOPDIR}/../openembedded-core/meta"' >> conf/bblayers.conf
