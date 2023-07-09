@@ -99,7 +99,7 @@ jobs:
           bitbake-layers add-layer ../meta-openembedded/meta-python
           bitbake-layers add-layer ../meta-openembedded/meta-networking
         
-      - name: bitbake linux-kernel and core-image-minimal
+      - name: bitbake linux-kernel 
           cd neu2aYctBuild
           source openembedded-core/oe-init-build-env build
           bitbake linux-kernel
@@ -108,9 +108,6 @@ jobs:
           cd neu2aYctBuild
           source openembedded-core/oe-init-build-env build
           bitbake core-image-minimal
-      
-          steps:
-      # Steps for building the Yocto Project image
 
       - name: Upload output artifacts
         uses: actions/upload-artifact@v2
