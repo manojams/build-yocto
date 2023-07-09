@@ -100,11 +100,13 @@ jobs:
           bitbake-layers add-layer ../meta-openembedded/meta-networking
         
       - name: bitbake linux-kernel 
+        run: |
           cd neu2aYctBuild
           source openembedded-core/oe-init-build-env build
           bitbake linux-kernel
           
       - name: bitbake core-image-minimal
+        run: |
           cd neu2aYctBuild
           source openembedded-core/oe-init-build-env build
           bitbake core-image-minimal
